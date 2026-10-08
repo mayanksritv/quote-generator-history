@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: quoteflow
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: QUOTE_API_URL
+        value: https://api.realinspire.live/v1/quotes/random?limit=1
