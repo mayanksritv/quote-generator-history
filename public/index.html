@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily quote generator with favorites history." />
+  <title>QuoteFlow — Quote Generator</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">QUOTE GENERATOR</p>
+        <h1>Words worth keeping.</h1>
+      </div>
+      <div class="status" id="apiStatus"><span class="dot"></span> Loading</div>
+    </header>
+
+    <section class="layout">
+      <section class="hero-card" aria-labelledby="quoteHeading">
+        <div class="card-topline">
+          <span id="topicBadge" class="badge">Inspiration</span>
+          <span id="sourceBadge" class="source">External API</span>
+        </div>
+
+        <div class="quote-wrap">
+          <div class="quote-mark">“</div>
+          <blockquote id="quoteText">Loading your quote…</blockquote>
+          <p id="quoteAuthor">—</p>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="newQuoteBtn">New quote</button>
+          <button class="btn secondary" id="favoriteBtn" aria-pressed="false"><span>♡</span> Save favorite</button>
+          <button class="icon-btn" id="copyBtn" title="Copy quote" aria-label="Copy quote">⧉</button>
+        </div>
+        <p class="feedback" id="feedback" role="status"></p>
+      </section>
+
+      <aside class="history-card" aria-labelledby="historyHeading">
+        <div class="history-header">
+          <div>
+            <p class="eyebrow">YOUR COLLECTION</p>
+            <h2 id="historyHeading">Favorites history</h2>
+          </div>
+          <span class="count" id="favoriteCount">0</span>
+        </div>
+
+        <div class="filters">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Search quotes or authors" autocomplete="off" />
+          </label>
+          <select id="topicFilter" aria-label="Filter by topic">
+            <option value="all">All topics</option>
+          </select>
+        </div>
+
+        <div id="favoritesList" class="favorites-list">
+          <div class="empty-state">
+            <div class="empty-icon">♡</div>
+            <strong>No favorites yet</strong>
+            <span>Save a quote and it will appear here.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>Built with Express · MongoDB · JavaScript</span>
+      <span>API fallback enabled</span>
+    </footer>
+  </main>
+
+  <template id="favoriteTemplate">
+    <article class="favorite-item">
+      <div class="item-meta">
+        <span class="badge small topic"></span>
+        <button class="remove-btn" title="Remove favorite" aria-label="Remove favorite">×</button>
+      </div>
+      <p class="item-text"></p>
+      <p class="item-author"></p>
+      <div class="item-actions">
+        <button class="text-btn copy-favorite">Copy</button>
+        <span class="saved-date"></span>
+      </div>
+    </article>
+  </template>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
