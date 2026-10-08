@@ -2,6 +2,11 @@
 
 A minimal full-stack internship project that fetches a daily quote from a public API, saves favorites to MongoDB, renders favorites history, supports filtering/search, and copies quotes to the clipboard.
 
+##  Project Links
+
+
+- **Live Demo:** https://quote-generator-history-dqwc.onrender.com
+
 ## Features
 
 - Daily quote fetched server-side from a public API.
